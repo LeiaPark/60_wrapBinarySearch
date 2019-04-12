@@ -25,11 +25,13 @@ public class UserOfBinarySearch {
         System.out.println();
         for( int i = 0; i < orderedList.size(); i++) {
             findMe = orderedList.get( i);
-            foundAt = orderedList.indexOf( findMe);
+            foundAt = orderedList.indexOf( findMe, 0, orderedList.size());
             System.out.println( 
                 "Value " + findMe
               + " was found at index " + foundAt
               + ". That's correct, eh? " + (foundAt == i)
+              + System.lineSeparator()
+              + orderedList.cost()
               );
         }
         System.out.println();
@@ -51,7 +53,7 @@ public class UserOfBinarySearch {
     private static void findOne( String description
                                , Integer value
                               ) {
-        int foundAt = orderedList.indexOf( value);
+        int foundAt = orderedList.indexOf( value, 0, orderedList.size());
         System.out.println( description + ": "
           + " value " + value
           + " \"found\" at index " + foundAt

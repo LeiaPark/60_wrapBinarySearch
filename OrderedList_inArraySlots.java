@@ -10,18 +10,40 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private java.util.ArrayList<Integer> list_iAS;
-
+    
+    private int numIterations;
+    
+    public String cost() {
+    	return "It took " + numIterations + " iterations";
+    }
 
     /**
       @return the index any occurrence of 
               \findMe in this list, or -1 if
               \findMe is absent from this list.
      */
-    public int indexOf( Integer findMe) {
-        return -32768; /* changing this value in 
-		  solutions will check the processing */
-    }
-    
+  public int indexOf( Integer findMe, int lowLim, int highLim) {
+	int middleNum = (int)((lowLim + highLim)/2);
+	if (lowLim <= highLim) {
+		if (list_iAS.get( middleNum) == findMe) {
+			numIterations++;
+			return middleNum;
+		}
+		else if (list_iAS.get( middleNum) > findMe) {
+			numIterations++;
+			highLim = middleNum - 1;
+			return indexOf( findMe, lowLim, highLim);
+		}
+		else {
+			numIterations++;
+			lowLim = middleNum + 1;
+			return indexOf( findMe, lowLim, highLim);
+		}
+	}
+	else {
+		return -1;
+	}
+} 
 
     // ------ code from previous assignments below here ----
 

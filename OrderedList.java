@@ -1,5 +1,5 @@
 public interface OrderedList{
-
+	
     /**
       @return the index of any occurrence of 
               \findMe in this list, or -1 if
@@ -8,7 +8,7 @@ public interface OrderedList{
 	  restriction in AbstractList.indexOf, which
 	  requires the first occurrence.
      */
-    int indexOf( Integer findMe);
+    int indexOf( Integer findMe, int lowLim, int highLim);
 
 
     // ------ methods from previous assignments below here ----
